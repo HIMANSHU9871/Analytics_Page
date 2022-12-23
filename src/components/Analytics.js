@@ -33,7 +33,7 @@ const Analytics = () => {
     }, [])
     // console.log(tableHead);
     const [date, setDate] = useState('2021-06-01')
-    const analytics = useFetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${date}&endDate=2021-06-04`);
+    const analytics = useFetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${date}&endDate=2021-06-30`);
     const appInfo = useFetch('http://go-dev.greedygame.com/v3/dummy/apps');
 
     if (analytics.loading || appInfo.loading) {

@@ -9,31 +9,8 @@ const Filter = ({ tableColumns, showCol, setShowCol, tableHead, setTableHead, se
         let s = str.toLowerCase();
         return (s.replaceAll(/\s/g, ''));
     }
-    const handleDragStart = (e,index)=>{
-        // e.preventDefault();
-        e.dataTransfer.setData("index", index);
-        console.log("drag started", index);
-    }
-    const handleDragOver = (e)=>{
-        e.preventDefault();
-        console.log("draggable");
-    }
-    const handleDrop = (e,index)=>{
-        console.log("you have droped at ", index);
-        let transferedIndex = e.dataTransfer.getData("index");
-        // console.log("before", tableHead[index], tableHead[transferedIndex]);
-        let newOrder = order;
-        let temp = newOrder[index];
-        newOrder[index] = newOrder[transferedIndex];
-        newOrder[transferedIndex] = temp;
-        // console.log("before", tableHead[index], tableHead[transferedIndex]);
-        setOrder(newOrder);
-        console.log("tableHead", tableHead);
-        console.log("tableColumns", tableColumns);
-        console.log("order", order);
-        forceUpdate();
-        // setTableHead(tableColumns);
-    }
+    
+   
     const handleShow = (key)=>{
         setIntialShowState({ ...intialShowState, clicks: !intialShowState[key] })
     }
@@ -50,7 +27,7 @@ const Filter = ({ tableColumns, showCol, setShowCol, tableHead, setTableHead, se
                         const {name, id} = curr;
                         const key = getKey(name);
                         return (
-                            <div key={id} className='flex border-2 rounded overflow-hidden bg-white w-36' onClick={() => {handleShow(key)}} draggable onDragStart={(e)=>{handleDragStart(e,index)}} droppable onDragOver={(e)=>{handleDragOver(e)}} onDrop={(e)=>{handleDrop(e,index)}}>
+                            <div key={id} className='flex border-2 rounded overflow-hidden bg-white w-36' onClick={() => {handleShow(key)}} >
                                 {
                                     (intialShowState[key] || (key === 'date' || key === 'app')) && <div className={`h-full w-2 bg-blue-500`}></div>
                                 }
