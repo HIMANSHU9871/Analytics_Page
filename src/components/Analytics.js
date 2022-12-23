@@ -40,7 +40,7 @@ const Analytics = () => {
         return <div className="flex justify-center">loading...</div>
     }
     else {
-        // console.log(analytics.data, appInfo.data);
+
         return (
             <div className='p-5'>
                 <h1 className='text-xl font-medium'>Analytics</h1>
